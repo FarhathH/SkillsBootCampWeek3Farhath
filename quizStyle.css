@@ -1,0 +1,12 @@
+
+body{
+    display: flex;
+    flex-direction: row;
+    padding: 10px;
+}
+.button{
+    background-color: greenyellow;
+    width: 10vw;
+    height: 20vh;
+    padding: 10px;
+}
