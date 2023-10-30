@@ -35,7 +35,9 @@ body{
     display:flex;
     flex:0.5;
     background-color: aqua;
-    text-align: center;
+    justify-content: center;
+    color:azure;
+    
 }
 
 .answerContainer{

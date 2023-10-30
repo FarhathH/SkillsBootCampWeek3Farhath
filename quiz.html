@@ -9,13 +9,38 @@
 <body>
     
     <div class = "questionContainer">
-        <h1>Who's the best Tutor?</h1>
+        <h1 id = "theRealDeal">Who's the real Tutor?</h1>
     </div>
     
-    <div class = "answerContainer">
+    <div id = "box" class = "answerContainer">
     <button class = "answer">Stroheimer</button>
     <button class = "answer">Lars</button>
     <button class = "answer">Matt</button>
     </div>
+
+    <script>
+       let question = { //our list
+        "question" : "Is this life?",
+        "possible" : ["Ladel", "Slender", "Matt"],
+        "answer": "Matt"
+       }
+
+       //This should return the value from the question list
+       let firstQuestion = document.getElementById("theRealDeal")
+       firstQuestion.innerHTML = question["question"] 
+        console.log(firstQuestion)
+
+       //This is the equivalent of creating multiple buttons
+       for(let i = 0; i<question["possible"].length; i++){//iterates through the list of options
+            let possibleAnswer = question["possible"][i] //creating a variable to go through the list
+            let button = document.createElement("button") //new variable
+            button.className = "answer" //assigned button variable to class
+            button.innerHTML = possibleAnswer //assigned button variable to list
+            document.getElementById("box").appendChild(button) //created a nested element
+            
+
+       }
+       
+    </script>
 </body>
 </html>
