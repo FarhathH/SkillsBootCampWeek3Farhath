@@ -9,51 +9,100 @@
 <body>
     
     <div class = "questionContainer">
-        <h1 id = "theRealDeal">Who's the real Tutor?</h1>
+        <h1 id = "theRealDeal"></h1>
         <h2 id = "answerCheck"></h2>
     </div>
     
     <div id = "box" class = "answerContainer">
-    <button class = "answer">Stroheimer</button>
-    <button class = "answer">Lars</button>
-    <button class = "answer">Matt</button>
+    <!-- <button class = "answer"></button>
+    <button class = "answer"></button>
+    <button class = "answer"></button> -->
     </div>
 
     <script>
-       let question = { //our list
-        "question" : "Is this life?",
-        "possible" : ["Ladel", "Slender", "Matt"],
+       let question1 = { //our list
+        "question" : "Who's the real Tutor?",
+        "possible" : ["Lars", "Slender", "Matt"],
         "answer": "Matt"
        }
 
-       //This should return the value from the question list
+       let question2 = { //our list
+        "question" : "Who's is SEGA's mascot?",
+        "possible" : ["Kirby", "Sonic", "Klonoa"],
+        "answer": "Sonic"
+       }
+
+       let question3 = { //our list
+        "question" : "What's 2+2",
+        "possible" : ["5", "4", "17"],
+        "answer": "4"
+       }
+
+      
+       //
+       const allTheQuestions = [question1, question2, question3]
+       let currentQuestion = 0
+       let lives = 3
+       function setQuestions(){
+
+            document.getElementById("box").innerHTML = ""
+            question = allTheQuestions[currentQuestion]
+            let h1Element = document.getElementById("theRealDeal")
+
+               //This is the equivalent of creating multiple buttons
+            for(let i = 0; i<question["possible"].length; i++){//iterates through the list of options
+
+                let possibleAnswer = question["possible"][i] //creating a variable to go through the list
+                let button = document.createElement("button") //new variable
+                button.className = "answer" //assigned button variable to class
+                console.log(i)
+
+                button.onclick = function(){
+
+                    let feedbackText = document.getElementById("answerCheck")
+                    
+                    if(possibleAnswer == question["answer"]){
+
+                        feedbackText.innerHTML = "CORRECT"
+                        this.style.backgroundColor = "darkgreen"
+                        
+                        //increment current question and rerun function
+                        if(currentQuestion == allTheQuestions.length-1){
+                        currentQuestion = 0
+                        }else{
+                            currentQuestion++
+                        }
+                            setQuestions()
+                    }else{
+                        feedbackText.innerHTML = "INCORRECT"
+                        lives--
+                    // this.style.backgroundColor = "darkred"
+                        this.disabled = true //grey out the wrong options
+                }
+
+                 
+                
+            }
+
+            document.getElementById("box").appendChild(button) //created a nested element
+            button.innerHTML = possibleAnswer //assigned button variable to list
+            
+            //This should return the value from the question list
        let firstQuestion = document.getElementById("theRealDeal")
        firstQuestion.innerHTML = question["question"] 
-        console.log(firstQuestion)
+       console.log(firstQuestion)
+            
+           
+         }
+       }
 
+       
+
+    setQuestions()
         
 
 
-       //This is the equivalent of creating multiple buttons
-       for(let i = 0; i<question["possible"].length; i++){//iterates through the list of options
-            let possibleAnswer = question["possible"][i] //creating a variable to go through the list
-            let button = document.createElement("button") //new variable
-            button.className = "answer" //assigned button variable to class
-            button.onclick = function(){
-                let feedbackText = document.getElementById("answerCheck")
-                if(possibleAnswer == question["answer"]){
-                    feedbackText.innerHTML = "CORRECT"
-                    
-                }else{
-                    feedbackText.innerHTML = "INCORRECT"
-                    
-                }
-            }
-            
-            
-            button.innerHTML = possibleAnswer //assigned button variable to list
-            document.getElementById("box").appendChild(button) //created a nested element
-         }
+
 
        
        

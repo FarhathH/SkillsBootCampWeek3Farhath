@@ -20,6 +20,10 @@ body{
     transition: 1s;
     
 }
+.answer:disabled{
+    background-color: grey;
+    transition:1s;
+}
 
 .answer:hover{
     scale: 110%;
@@ -35,9 +39,9 @@ body{
     display:flex;
     flex:1;
     background-color: aqua;
-    justify-content: center;
+    align-items: center;
     color:azure;
-    
+    flex-direction: column;
     
 }
 
