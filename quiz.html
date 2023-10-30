@@ -10,6 +10,7 @@
     
     <div class = "questionContainer">
         <h1 id = "theRealDeal">Who's the real Tutor?</h1>
+        <h2 id = "answerCheck"></h2>
     </div>
     
     <div id = "box" class = "answerContainer">
@@ -30,16 +31,31 @@
        firstQuestion.innerHTML = question["question"] 
         console.log(firstQuestion)
 
+        
+
+
        //This is the equivalent of creating multiple buttons
        for(let i = 0; i<question["possible"].length; i++){//iterates through the list of options
             let possibleAnswer = question["possible"][i] //creating a variable to go through the list
             let button = document.createElement("button") //new variable
             button.className = "answer" //assigned button variable to class
+            button.onclick = function(){
+                let feedbackText = document.getElementById("answerCheck")
+                if(possibleAnswer == question["answer"]){
+                    feedbackText.innerHTML = "CORRECT"
+                    
+                }else{
+                    feedbackText.innerHTML = "INCORRECT"
+                    
+                }
+            }
+            
+            
             button.innerHTML = possibleAnswer //assigned button variable to list
             document.getElementById("box").appendChild(button) //created a nested element
-            
+         }
 
-       }
+       
        
     </script>
 </body>

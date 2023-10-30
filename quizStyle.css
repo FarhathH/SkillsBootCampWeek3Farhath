@@ -33,10 +33,11 @@ body{
 
 .questionContainer{
     display:flex;
-    flex:0.5;
+    flex:1;
     background-color: aqua;
     justify-content: center;
     color:azure;
+    
     
 }
 
