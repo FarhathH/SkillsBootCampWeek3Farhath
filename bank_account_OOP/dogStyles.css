@@ -1,0 +1,26 @@
+body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: pink;
+    padding: auto;
+
+    height: 100vh;
+    
+}
+
+img{
+    width:50vw;
+    height:50vh;
+    border-radius: 100px;
+    transition: 0.5s;
+}
+
+img:hover{
+    scale: 110%;
+    background-color: black;
+    opacity: 50%;
+    border: 10px dotted red;
+    cursor: pointer;
+    transition: 0.5s;
+}

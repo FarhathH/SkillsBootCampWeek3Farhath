@@ -4,13 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+ <link rel = "stylesheet" href = "dogStyles.css">
 </head>
 <body>
+    <img id = "dog-image" onclick = "getRandomDog()">
     <script>
         async function getRandomDog(){
           const response = await fetch("https://dog.ceo/api/breeds/image/random")
-          let dogData = await response.json  
+          let dogData = await response.json()  
+          document.getElementById("dog-image").src = dogData.message
         }
+
+        getRandomDog()
     </script>
 </body>
 </html>
