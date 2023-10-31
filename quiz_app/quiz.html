@@ -20,44 +20,64 @@
     </div>
 
     <script>
-       let question1 = { //our list
-        "question" : "Who's the real Tutor?",
-        "possible" : ["Lars", "Slender", "Matt"],
-        "answer": "Matt"
-       }
+    //    let question1 = { //our list
+    //     "question" : "Who's the real Tutor?",
+    //     "possible" : ["Lars", "Slender", "Matt"],
+    //     "answer": "Matt"
+    //    }
 
-       let question2 = { //our list
-        "question" : "Who's is SEGA's mascot?",
-        "possible" : ["Kirby", "Sonic", "Klonoa"],
-        "answer": "Sonic"
-       }
+    //    let question2 = { //our list
+    //     "question" : "Who's is SEGA's mascot?",
+    //     "possible" : ["Kirby", "Sonic", "Klonoa"],
+    //     "answer": "Sonic"
+    //    }
 
-       let question3 = { //our list
-        "question" : "What's 2+2",
-        "possible" : ["5", "4", "17"],
-        "answer": "4"
-       }
-
-       async function getQuestion(){
-        const response = await fetch("https://opentdb.com/api.php?amount=10")
-        let data = await reponse.json()
-       console.log(data)
+    //    let question3 = { //our list
+    //     "question" : "What's 2+2",
+    //     "possible" : ["5", "4", "17"],
+    //     "answer": "4"
+    //    }
+        let allTheQuestions = []
+       async function getQuestion(){ //function for generating questions
+           
+            const response = await fetch("https://opentdb.com/api.php?amount=10&category=20&difficulty=medium&type=multiple")
+            let data = await response.json()
+            // console.log(data.results)
+            allTheQuestions = data.results
+            console.log(allTheQuestions)
+            setQuestions()
         }
-      
+        
+        getQuestion()
        //
-       const allTheQuestions = [question1, question2, question3]
+       
+       
        let currentQuestion = 0
        let lives = 3
        function setQuestions(){
 
+
             document.getElementById("box").innerHTML = ""
             question = allTheQuestions[currentQuestion]
+            // console.log(question)
+
+            //get the h1 element from dom and set it's text to the question
             let h1Element = document.getElementById("theRealDeal")
+            h1Element.innerHTML = question.question
+
+            //adding correct answer to the array
+            let allAnswers = question.incorrect_answers
+            allAnswers.push(question.correct_answer)
+            console.log(question)
+
+            
 
                //This is the equivalent of creating multiple buttons
-            for(let i = 0; i<question["possible"].length; i++){//iterates through the list of options
+            for(let i = 0; i<allAnswers.length; i++){//iterates through the list of options
 
-                let possibleAnswer = question["possible"][i] //creating a variable to go through the list
+
+                //creates a new button
+                let possibleAnswer = allAnswers[i] //creating a variable to go through the list
                 let button = document.createElement("button") //new variable
                 button.className = "answer" //assigned button variable to class
                 console.log(i)
@@ -66,8 +86,8 @@
 
                     let feedbackText = document.getElementById("answerCheck")
                     
-                    if(possibleAnswer == question["answer"]){
-
+                    if(possibleAnswer == question.correct_answer){
+                        //for the correct answer
                         feedbackText.innerHTML = "CORRECT"
                         this.style.backgroundColor = "darkgreen"
                         
@@ -79,7 +99,7 @@
                         }
                             setQuestions()
                     }else{
-                        feedbackText.innerHTML = "INCORRECT"
+                        feedbackText.innerHTML = "INCORRECT" //for the wrong answer
                         lives--
                     // this.style.backgroundColor = "darkred"
                         this.disabled = true //grey out the wrong options
@@ -103,7 +123,7 @@
 
        
 
-    setQuestions()
+    // setQuestions()
         
 
 
