@@ -14,9 +14,9 @@ class BankAccount{
 
     getInterest(percentage){ //calculates interest increase
         
-        let interestRate = percentage/100
-        let increase = this.balance * interestRate
-        this.balance += increase
+        let interestRate = percentage/100 // converting number to a decimal
+        let increase = this.balance * interestRate //calculating increase
+        this.balance += increase // calculating new balance
         
     }
 
@@ -40,8 +40,12 @@ class BankAccount{
 //new object with values in regards to the parameters from the constructor
 let acc1 = new BankAccount("Sally Face",393425, 99857849 ,545657, -100)
 
-acc1.getInterest(7)
-console.log(acc1.balance)
+for(let year = 1; year<=5; year++){
+acc1.getInterest(4)
+console.log(`Year ${year}:` + acc1.getDescription())
+}
+
+
 
 // console.log(acc1.balance)
 // acc1.modifyBalance(458375)
