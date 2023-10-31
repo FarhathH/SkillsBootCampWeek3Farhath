@@ -1,14 +1,23 @@
 //Created a class
 class BankAccount{
 
-    constructor(hol, bal, accNo, sort){
+    constructor(hol, bal, accNo, sort, Dra){
         
         this.accountHolder = hol
         this.balance = bal
         this.sortCode = sort
         this.accountNumber = accNo
-        this.overDraft = -100
+        this.overDraft = Dra
+        
 
+    }
+
+    getInterest(percentage){ //calculates interest increase
+        
+        let interestRate = percentage/100
+        let increase = this.balance * interestRate
+        this.balance += increase
+        
     }
 
     getDescription(){ //this method is used for return all the values
@@ -29,13 +38,16 @@ class BankAccount{
 }
 
 //new object with values in regards to the parameters from the constructor
-let acc1 = new BankAccount("Sally Face",393425, 99857849 ,545657)
+let acc1 = new BankAccount("Sally Face",393425, 99857849 ,545657, -100)
 
+acc1.getInterest(7)
 console.log(acc1.balance)
-acc1.modifyBalance(458375)
-console.log(acc1.balance)
-acc1.modifyBalance(653)
-console.log(acc1.balance)
+
+// console.log(acc1.balance)
+// acc1.modifyBalance(458375)
+// console.log(acc1.balance)
+// acc1.modifyBalance(653)
+// console.log(acc1.balance)
 // console.log(acc1.balance) //prints out balance from acc1 object
 // acc1.modifyBalance(100) //using function to increment balance
 // console.log(acc1.balance) //prints out new balance
