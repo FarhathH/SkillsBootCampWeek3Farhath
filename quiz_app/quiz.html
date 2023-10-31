@@ -38,6 +38,11 @@
         "answer": "4"
        }
 
+       async function getQuestion(){
+        const response = await fetch("https://opentdb.com/api.php?amount=10")
+        let data = await reponse.json()
+       console.log(data)
+        }
       
        //
        const allTheQuestions = [question1, question2, question3]
