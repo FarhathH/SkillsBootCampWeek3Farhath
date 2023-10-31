@@ -65,10 +65,12 @@
             let h1Element = document.getElementById("theRealDeal")
             h1Element.innerHTML = question.question
 
-            //adding correct answer to the array
-            let allAnswers = question.incorrect_answers
-            allAnswers.push(question.correct_answer)
-            console.log(question)
+            //collating possible answers to the array
+            let allAnswers = [...question.incorrect_answers]
+            let randomIndex = Math.floor(Math.random() * allAnswers.length)
+            allAnswers.splice(randomIndex,0,question.correct_answer)
+            // allAnswers.push(question.correct_answer)
+            console.log(allAnswers)
 
             
 
@@ -82,6 +84,7 @@
                 button.className = "answer" //assigned button variable to class
                 console.log(i)
 
+                //check for the correct answer
                 button.onclick = function(){
 
                     let feedbackText = document.getElementById("answerCheck")
