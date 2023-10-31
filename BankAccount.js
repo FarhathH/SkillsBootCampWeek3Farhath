@@ -7,7 +7,7 @@ class BankAccount{
         this.balance = bal
         this.sortCode = sort
         this.accountNumber = accNo
-        
+        this.overDraft = -100
 
     }
 
@@ -16,8 +16,14 @@ class BankAccount{
     }
    
     
-    modifyBalance(num1){ //increases the balance based on the deposit
-        return this.balance += num1
+    modifyBalance(num1){ //increases/decreases the balance based on the deposit
+        //checking the condition so that the overDraft limit can affect how much money can be taken out.
+        if(this.balance-num1 < this.overDraft){
+            console.log("This exceeds the overdraft limit")
+        }else{
+
+            return this.balance -= num1
+        }
     }
   
 }
@@ -25,10 +31,14 @@ class BankAccount{
 //new object with values in regards to the parameters from the constructor
 let acc1 = new BankAccount("Sally Face",393425, 99857849 ,545657)
 
+console.log(acc1.balance)
+acc1.modifyBalance(458375)
+console.log(acc1.balance)
+acc1.modifyBalance(653)
+console.log(acc1.balance)
+// console.log(acc1.balance) //prints out balance from acc1 object
+// acc1.modifyBalance(100) //using function to increment balance
+// console.log(acc1.balance) //prints out new balance
+// console.log(acc1.accountHolder) //prints the name of the account holder
 
-console.log(acc1.balance) //prints out balance from acc1 object
-acc1.modifyBalance(100) //using function to increment balance
-console.log(acc1.balance) //prints out new balance
-console.log(acc1.accountHolder) //prints the name of the account holder
-
-console.log(acc1.getDescription()) //prints out all the info of the bank account
+// console.log(acc1.getDescription()) //prints out all the info of the bank account
