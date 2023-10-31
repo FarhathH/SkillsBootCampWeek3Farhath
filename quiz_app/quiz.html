@@ -40,7 +40,8 @@
         let allTheQuestions = []
        async function getQuestion(){ //function for generating questions
            
-            const response = await fetch("https://opentdb.com/api.php?amount=10&category=20&difficulty=medium&type=multiple")
+            //this is used to integrate the API of your choice into your file
+            const response = await fetch("https://opentdb.com/api.php?amount=20&category=21&difficulty=hard&type=multiple")
             let data = await response.json()
             // console.log(data.results)
             allTheQuestions = data.results
