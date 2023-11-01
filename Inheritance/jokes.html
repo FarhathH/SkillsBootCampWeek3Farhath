@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+
+<head>
+    <link rel = "stylesheet" href = "jokeStyles.css">
+    <title>Jokes</title>
+</head>
+<body>
+   <!--Both of these divs carry the joke and the punchline--> 
+    <div id = "comedy_gold" class = "box"></div>
+    <div id = "punch_line" class = "box2" onclick = "onClick()"></div>
+    
+    <!--buttons to progress or go to the previous joke-->
+    <button id = "array" onclick = "next()">Next</button>
+    <button onclick = "previous()">Previous</button>
+
+    <script>
+        let theJoke
+        let showPunchLine
+        let jokesArray = [];
+        let index = 0
+        console.log(jokesArray)
+        let numArray = [2,7,34,98,12,97,13]
+        
+        //function to grab joke
+        async function myJoke(){
+             const response = await fetch("https://official-joke-api.appspot.com/jokes/random")
+             theJoke = await response.json() 
+             console.log(theJoke)
+             jokesArray.push(theJoke)
+             console.log(jokesArray)
+             document.getElementById("comedy_gold").innerHTML = theJoke.setup
+            
+        
+        }
+        //function to grab punch line
+        async function punchLine(){
+            // const response = await fetch("https://official-joke-api.appspot.com/jokes/random")
+            // showPunchLline = await reponse.json()
+
+            console.log(showPunchLine)
+            document.getElementById("punch_line").innerHTML = theJoke.punchline
+            // document.getElementById("punch_line").innerHTML = false
+
+            showPunchLline = true
+        }
+        
+        //is carried out when user clicks second box
+        function onClick(){
+            if(showPunchLine){
+                document.geteElementById("punch_line").innerHTML = theJoke.punchline
+                console.log("Pressed")
+                showPunchLine = false
+            }else{
+                punchLine()
+                
+            }
+        }
+
+        function next(){
+            index++
+            display();
+        }
+
+        function previous(){
+            if(index>0){
+                index--
+            }else{
+                index = numArray.length()
+            }
+        }
+
+        function display(){
+            document.getElementById("array").innerHTML = numArray[index]
+        }
+
+        myJoke()
+        
+    </script>    
+</body>
+</html>
