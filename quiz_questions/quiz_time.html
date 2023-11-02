@@ -3,10 +3,11 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>JavaScript</title>
+        <link rel = "stylesheet" href = "quiz_time.css">
+        <title>JavaScript practice</title>
     </head>
     <body>
-        <h1>Question 1</h1>
+        <!-- <h1>Question 1</h1>
         <p>for(let i = 0; i<10; i++){</p>
         <p>console.log(i)</p>
         <p>}</p>
@@ -32,20 +33,47 @@
         <p>a. prints out the answer to 1 + 2</p>
         <p>b. prints out 12</p>
         <p>c. the console will be blank</p>
-        <p>d. prints "letThereBeLight()" literally</p>
+        <p>d. prints "letThereBeLight()" literally</p> -->
         
-        <div id = "heyListen">
-            
-        </div>
+        
+        
+        <div id = "firstTime" class = "title"></div>
+        <div id = "heyListen" class = "zoomies"></div>
+        <br>
+        <div id = "neverSayNever" class = "bottom" onclick = "onClick()"></div>
+        
 
 
 
         <script>
+            
+            let header = document.createElement("h2")
+            header.innerHTML = "My header :)"
+            document.getElementById("firstTime").appendChild(header)
+
+            let newImage = document.createElement("img")
+            newImage.src = "https://upload.wikimedia.org/wikipedia/commons/f/fe/Cocoa_Powder_and_Chocolate_on_Marble_Background.jpg"
+            newImage.style.width = "300px"
+            document.getElementById("heyListen").appendChild(newImage)
+
             let newButton = document.createElement("Button")
             newButton.innerHTML = "Made it"
-            document.getElementById("heyListen").appendChild(newButton)
-
+            document.getElementById("neverSayNever").appendChild(newButton)
             
+            
+            const colours = ["red", "green", "blue", "orange", "yellow", "black", "violet"]
+             let indexCount = 0
+
+            function onClick(){
+                
+                header.style.color = colours[indexCount]
+                if(indexCount == colours.length-1){
+                    indexCount = 0
+                }else{
+                    indexCount++
+                }
+            }
+           
 
         </script>
     </body>

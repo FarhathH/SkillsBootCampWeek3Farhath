@@ -1,0 +1,30 @@
+body{
+    display:flex;
+    flex-direction: column;
+    flex: 1;
+    width:1000px;
+    height:1000px;
+    align-items: center;
+    margin:100px;
+    border: 50px dashed red;
+ 
+    
+    
+}
+
+.title{
+    color:blue;
+    font-size:smaller;
+}
+.title:hover{
+    cursor:pointer;
+}
+
+.zoomies{
+    
+    border: 5px solid gold;
+}
+
+/* .bottom{
+
+} */
