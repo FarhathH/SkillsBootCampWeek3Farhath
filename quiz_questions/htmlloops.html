@@ -20,11 +20,20 @@
                     //write the text as the i variable 
                     myButton.innerHTML = i
                     
+                    //called when button interface is clicked
                     myButton.onclick = function onClick(){
                     alert(i)
                     }
+
+                    //nested in the div id called "button-container"
                     document.getElementById("button-container").appendChild(myButton)
-                    myButton.className = "button-look"
+                    
+                    //this will cause the buttons with multiples of 3 to be a different colour
+                    if(i % 3 == 0){
+                        myButton.className = "odd-one"
+                    }else{
+                        myButton.className = "button-look"
+                    }
                 }
 
                 

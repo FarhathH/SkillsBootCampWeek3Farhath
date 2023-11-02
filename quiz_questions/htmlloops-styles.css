@@ -7,6 +7,22 @@ body{
 
 }
 
+.odd-one{
+    border-radius: 5%;
+    border:1px dotted hotpink;
+    height:100px;
+    width: 100px;
+    background-color: lightseagreen;
+    margin: 5px;
+}
+
+.odd-one:hover{
+    border: 1px dashed lightslategray;
+    background-color: darkorchid;
+    scale:105%;
+    transition: 0.5s;
+}
+
 .button-look{
     border-radius: 5%;
     border:1px dotted blue;
