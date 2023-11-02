@@ -47,23 +47,34 @@
 
         <script>
             
+            //element created for the header
             let header = document.createElement("h2")
+            //written to be displayed in HTML
             header.innerHTML = "My header :)"
+            //nesting it in the div with id called "firstTime"
             document.getElementById("firstTime").appendChild(header)
 
+            //element created for the image
             let newImage = document.createElement("img")
+            //linking the image from a webpage.
             newImage.src = "https://upload.wikimedia.org/wikipedia/commons/f/fe/Cocoa_Powder_and_Chocolate_on_Marble_Background.jpg"
+            //edited the image's width since using the css stylesheet was ineffective
             newImage.style.width = "300px"
+            //nesting it to the div with id called "heyListen"
             document.getElementById("heyListen").appendChild(newImage)
 
+            //created button
             let newButton = document.createElement("Button")
+            //content contained inside
             newButton.innerHTML = "Made it"
+            //nested in div id called "neverSayNever"
             document.getElementById("neverSayNever").appendChild(newButton)
             
-            
+            //array for different colours
             const colours = ["red", "green", "blue", "orange", "yellow", "black", "violet"]
-             let indexCount = 0
+            let indexCount = 0 //variable for keeping track in index
 
+            //function is called when the button is clicked and changes the header's colour each time
             function onClick(){
                 
                 header.style.color = colours[indexCount]

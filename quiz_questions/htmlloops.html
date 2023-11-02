@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+    <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+            <link rel = "stylesheet" href = "htmlloops-styles.css">
+            <title>Document</title>
+        </head>
+        <body>
+            <div id = "button-container" onclick = "onClick()"></div>
+
+            <script>
+                
+                //imcrements each time a button is made with a num value inside resulting in multiple
+                for(let i = 0; i <= 200; i++){
+
+                    //created a button
+                    let myButton = document.createElement("button")
+                    
+                    //write the text as the i variable 
+                    myButton.innerHTML = i
+                    
+                    myButton.onclick = function onClick(){
+                    alert(i)
+                    }
+                    document.getElementById("button-container").appendChild(myButton)
+                    myButton.className = "button-look"
+                }
+
+                
+            </script>
+        </body>
+    </html>

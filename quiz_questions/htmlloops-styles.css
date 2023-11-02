@@ -1,0 +1,25 @@
+body{
+    display:flex;
+    flex:2;
+    display:inline-block;
+    padding:100px;
+
+
+}
+
+.button-look{
+    border-radius: 5%;
+    border:1px dotted blue;
+    height:100px;
+    width: 100px;
+    background-color: cadetblue;
+    margin: 5px;
+}
+
+.button-look:hover{
+    border: 1px solid midnightblue;
+    background-color: darkcyan;
+    scale:105%;
+    transition: 0.5s;
+    
+}
